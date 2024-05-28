@@ -1,0 +1,33 @@
+﻿<Window x:Class="RepairOfRoads.MainWindowDirector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RepairOfRoads"
+        mc:Ignorable="d"
+        Title="MainWindowDirector" Height="600" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Меню -->
+        <Menu Grid.Row="0" Height="40">
+            <MenuItem Header="Авторизация">
+                <MenuItem Header="Войти" x:Name="Authorization" Click="Authorization_Click" />
+            </MenuItem>
+            <MenuItem Header="Персонал">
+                <MenuItem Header="Просмотр персонала" x:Name="ViewPersonnelMenuItem" Click="ViewPersonnelMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="Задания">
+                <MenuItem Header="Просмотр заданий" x:Name="ViewTasksMenuItem" Click="ViewTasksMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="Заявки">
+                <MenuItem Header="Просмотр заявок" x:Name="ViewRequestsMenuItem" Click="ViewRequestsMenuItem_Click" />
+            </MenuItem>
+        </Menu>
+        <!-- Содержимое окна -->
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" />
+    </Grid>
+</Window>
