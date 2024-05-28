@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindowEmployee" Height="600" Width="900">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Меню -->
+        <Menu Grid.Row="0" Height="40">
+            <MenuItem Header="Авторизация">
+                <MenuItem Header="Войти" x:Name="Authorization" Click="Authorization_Click" />
+            </MenuItem>
+            <MenuItem Header="Задачи">
+                <MenuItem Header="Просмотр задач" x:Name="ViewRequestsMenuItem" Click="ViewRequestsMenuItem_Click" />
+            </MenuItem>
+        </Menu>
+        <!-- Содержимое окна -->
         <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

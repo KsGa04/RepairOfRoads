@@ -18,7 +18,6 @@ namespace RepairOfRoads
         public StatusRequest()
         {
             this.Requests = new HashSet<Requests>();
-            this.Task = new HashSet<Task>();
         }
     
         public int idstatus { get; set; }
@@ -26,7 +25,6 @@ namespace RepairOfRoads
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Requests> Requests { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Task> Task { get; set; }
+        
     }
 }

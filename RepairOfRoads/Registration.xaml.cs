@@ -27,16 +27,24 @@ namespace RepairOfRoads
 
         private void RegButton_Click(object sender, RoutedEventArgs e)
         {
-            Users users = new Users();
-            users.login = UsernameTextBox.Text;
-            users.password = PasswordTextBox.Password;
-            users.idrole = 1;
-            db.Users.Add(users);
-            db.SaveChanges();
+            if (UsernameTextBox.Text != "" && PasswordTextBox.Password != "")
+            {
+                Users users = new Users();
+                users.login = UsernameTextBox.Text;
+                users.password = PasswordTextBox.Password;
+                users.idrole = 1;
+                db.Users.Add(users);
+                db.SaveChanges();
 
-            Authorization authorization = new Authorization();
-            authorization.Show();
-            this.Hide();
+                Authorization authorization = new Authorization();
+                authorization.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Заполнены не все данные");
+            }
+            
         }
 
         private void AuthoButton_Click(object sender, RoutedEventArgs e)

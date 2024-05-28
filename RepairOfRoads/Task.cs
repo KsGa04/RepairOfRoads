@@ -29,7 +29,7 @@ namespace RepairOfRoads
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MaterialsTask> MaterialsTask { get; set; }
-        public virtual StatusRequest StatusRequest { get; set; }
+        public virtual StatusTask StatusTask { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UsersTask> UsersTask { get; set; }
     }

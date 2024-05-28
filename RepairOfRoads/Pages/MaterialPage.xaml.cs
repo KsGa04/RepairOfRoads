@@ -30,7 +30,7 @@ namespace RepairOfRoads.Pages
 
         private void AddPersonal_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Pages.WindowMaterials(0));
+            NavigationService.Navigate(new Pages.PageMaterials(0));
         }
 
         private void EditPersonal_Click(object sender, RoutedEventArgs e)
@@ -39,7 +39,7 @@ namespace RepairOfRoads.Pages
             {
                 var item = materialsDataGrid.SelectedItem as Materials;
                 int id = item.idmaterials;
-                NavigationService.Navigate(new WindowMaterials(id));
+                NavigationService.Navigate(new PageMaterials(id));
             }
             else
             {

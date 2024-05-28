@@ -22,6 +22,7 @@ namespace RepairOfRoads
         public MainWindowDirector()
         {
             InitializeComponent();
+            MainFrame.Navigate(new Pages.ApplicationsPage());
         }
 
         private void ViewRequestsMenuItem_Click(object sender, RoutedEventArgs e)
@@ -44,6 +45,16 @@ namespace RepairOfRoads
             Authorization authorization = new Authorization();
             authorization.Show();
             this.Hide();
+        }
+
+        private void ViewTaskUsersMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pages.PageTasksUsers());
+        }
+
+        private void WorkCalendarMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pages.CalendarPage());
         }
     }
 }

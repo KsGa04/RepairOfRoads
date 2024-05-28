@@ -20,11 +20,12 @@
             <MenuItem Header="Персонал">
                 <MenuItem Header="Просмотр персонала" x:Name="ViewPersonnelMenuItem" Click="ViewPersonnelMenuItem_Click" />
             </MenuItem>
+            <MenuItem Header="Календарь">
+                <MenuItem Header="Календарь работ" x:Name="WorkCalendarMenuItem" Click="WorkCalendarMenuItem_Click" />
+            </MenuItem>
             <MenuItem Header="Задания">
                 <MenuItem Header="Просмотр заданий" x:Name="ViewTasksMenuItem" Click="ViewTasksMenuItem_Click" />
-            </MenuItem>
-            <MenuItem Header="Заявки">
-                <MenuItem Header="Просмотр заявок" x:Name="ViewRequestsMenuItem" Click="ViewRequestsMenuItem_Click" />
+                <MenuItem Header="Назначение специалистов" x:Name="ViewTaskUsersMenuItem" Click="ViewTaskUsersMenuItem_Click" />
             </MenuItem>
         </Menu>
         <!-- Содержимое окна -->

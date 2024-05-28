@@ -79,6 +79,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CertainUserTask.xaml.cs">
+      <DependentUpon>CertainUserTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateRequest.xaml.cs">
+      <DependentUpon>CreateRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageMaterials.xaml.cs">
+      <DependentUpon>PageMaterials.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PagePerson.xaml.cs">
+      <DependentUpon>PagePerson.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageRequest.xaml.cs">
+      <DependentUpon>PageRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageTask.xaml.cs">
+      <DependentUpon>PageTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageTasksUsers.xaml.cs">
+      <DependentUpon>PageTasksUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskUserPage.xaml.cs">
+      <DependentUpon>TaskUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
@@ -138,7 +162,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CertainUserTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CreateRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MaterialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageMaterials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PagePerson.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageTasksUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\TaskPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TaskUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

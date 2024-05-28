@@ -30,10 +30,7 @@ namespace RepairOfRoads
             MainFrame.Navigate(new Pages.MaterialPage());
         }
 
-        private void WorkCalendarMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Pages.CalendarPage());
-        }
+        
 
         private void ViewRequestsMenuItem_Click(object sender, RoutedEventArgs e)
         {

@@ -18,17 +18,17 @@
                 <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Просмотр материалов" Grid.Row="0" FontSize="22" Foreground="White" Margin="0" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center"/>
-            <ListView x:Name="ComputerDataGrid" Grid.Row="1" Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
+            <ListView x:Name="materialsDataGrid" Grid.Row="1" Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idmaterials}" Width="50"/>
-                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding nameMaterials}" Width="400"/>
-                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding countMaterials}" Width="270"/>
+                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding nameMaterials}" Width="400"/>
+                        <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding countMaterials}" Width="270"/>
                     </GridView>
                 </ListView.View>
             </ListView>
             <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
-                <Button Style="{StaticResource ButtonStyle}" Content="Добавить" x:Name="AddPersonal" Click="AddPersonal_Click"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Поставить" x:Name="AddPersonal" Click="AddPersonal_Click"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Изменить" x:Name="EditPersonal" Click="EditPersonal_Click"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Удалить" x:Name="DeletePersonal" Click="DeletePersonal_Click"/>
             </StackPanel>

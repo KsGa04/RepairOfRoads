@@ -31,7 +31,7 @@ namespace RepairOfRoads.Pages
 
         private void AddPersonal_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Pages.WindowPerson(0));
+            NavigationService.Navigate(new Pages.PagePerson(0));
         }
 
         private void EditPersonal_Click(object sender, RoutedEventArgs e)
@@ -40,7 +40,7 @@ namespace RepairOfRoads.Pages
             {
                 var item = usersDataGrid.SelectedItem as Users;
                 int id = item.iduser;
-                NavigationService.Navigate(new WindowPerson(id));
+                NavigationService.Navigate(new PagePerson(id));
             }
             else
             {

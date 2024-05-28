@@ -14,4 +14,8 @@ namespace RepairOfRoads
     public partial class App : Application
     {
     }
+    public static class CurreintUser
+    {
+        public static int id { get; set;}
+    }
 }

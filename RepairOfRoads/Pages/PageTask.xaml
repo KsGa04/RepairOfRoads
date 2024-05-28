@@ -41,16 +41,16 @@
             <ComboBox Text="{Binding StatusTask.namestatus}"  Grid.Row="4" x:Name="status">
             </ComboBox>
 
-            <TextBlock Text="Дата начала:" Grid.Row="1" />
-            <DatePicker Text="{Binding dateStart}" Grid.Row="2" x:Name="dateStart"/>
-            <TextBlock Text="Дата окончания:" Grid.Row="1" />
-            <DatePicker Text="{Binding dateEnd}" Grid.Row="2" x:Name="dateEnd"/>
+            <TextBlock Text="Дата начала:" Grid.Row="5" />
+            <DatePicker Text="{Binding dateStart}" Grid.Row="6" x:Name="dateStart"/>
+            <TextBlock Text="Дата окончания:" Grid.Row="7" />
+            <DatePicker Text="{Binding dateEnd}" Grid.Row="8" x:Name="dateEnd" VerticalAlignment="Top"/>
 
 
             <!-- Кнопки -->
-            <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                <Button Content="Сохранить" Style="{StaticResource ButtonStyle}" Margin="0,0,10,0" x:Name="Save" Click="Save_Click" />
-                <Button Content="Закрыть" Style="{StaticResource ButtonStyle}" Margin="0,0,10,0" x:Name="Back" Click="Back_Click"/>
+            <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                <Button Content="Сохранить" Style="{StaticResource ButtonStyle}" Margin="0,0,5,0" x:Name="Save" Click="Save_Click" />
+                <Button Content="Закрыть" Style="{StaticResource ButtonStyle}" Margin="0,0,5,0" x:Name="Back" Click="Back_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

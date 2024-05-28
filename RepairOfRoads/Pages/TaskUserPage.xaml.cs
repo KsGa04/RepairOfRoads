@@ -16,51 +16,52 @@ using System.Windows.Shapes;
 namespace RepairOfRoads.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageTask.xaml
+    /// Логика взаимодействия для TaskUserPage.xaml
     /// </summary>
-    public partial class PageTask : Page
+    public partial class TaskUserPage : Page
     {
         public RepairOfRoadsEntities db = new RepairOfRoadsEntities();
-        Task Task = new Task();
+        UsersTask Task = new UsersTask();
         public int Id;
-        public PageTask(int id)
+        public TaskUserPage(int id)
         {
             InitializeComponent();
             if (id != 0)
             {
                 Id = id;
-                Task = db.Task.Where(x => x.idTask == id).FirstOrDefault();
+                Task = db.UsersTask.Where(x => x.id == id).FirstOrDefault();
                 DataContext = Task;
             }
-            foreach (var d in db.StatusTask)
+            foreach (var d in db.Task)
             {
-                status.Items.Add(d.namestatus);
+                tasks.Items.Add(d.problemName);
+            }
+            foreach (var d in db.Users)
+            {
+                login.Items.Add(d.login);
             }
         }
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             if (Id != 0)
             {
-                Task.problemName = problem.Text;
-                Task.idStatus = status.SelectedIndex + 1;
-                Task.dateStart = (DateTime)dateStart.SelectedDate;
-                Task.dateEnd = (DateTime)dateEnd.SelectedDate;
+                Task.idTask = tasks.SelectedIndex + 1;
+                Task.idUser = login.SelectedIndex + 1;
             }
             else
             {
-                Task Task = new Task();
-                Task.problemName = problem.Text;
-                Task.idStatus = status.SelectedIndex + 1;
-                Task.dateStart = (DateTime)dateStart.SelectedDate;
-                Task.dateEnd = (DateTime)dateEnd.SelectedDate;
-                db.Task.Add(Task);
+                UsersTask Task = new UsersTask();
+                Task.idTask = tasks.SelectedIndex + 1;
+                Task.idUser = login.SelectedIndex + 1;
+                db.UsersTask.Add(Task);
             }
             db.SaveChanges();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Pages.TaskPage());
+            NavigationService.Navigate(new Pages.PageTasksUsers());
         }
     }
 }

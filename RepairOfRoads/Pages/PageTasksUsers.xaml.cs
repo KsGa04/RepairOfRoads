@@ -16,29 +16,31 @@ using System.Windows.Shapes;
 namespace RepairOfRoads.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ApplicationsPage.xaml
+    /// Логика взаимодействия для PageTasksUsers.xaml
     /// </summary>
-    public partial class ApplicationsPage : Page
+    public partial class PageTasksUsers : Page
     {
-        public RepairOfRoadsEntities db= new RepairOfRoadsEntities();
-        public ApplicationsPage()
+        public RepairOfRoadsEntities db = new RepairOfRoadsEntities();
+        List<UsersTask> tasks = new List<UsersTask>();
+        public PageTasksUsers()
         {
             InitializeComponent();
-            requestsDataGrid.ItemsSource = db.Requests.ToList();
+            tasks = db.UsersTask.ToList();
+            requestsDataGrid.ItemsSource = tasks;
         }
 
         private void AddPersonal_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Pages.PageRequest(0));
+            NavigationService.Navigate(new Pages.TaskUserPage(0));
         }
 
         private void EditPersonal_Click(object sender, RoutedEventArgs e)
         {
             if (requestsDataGrid.SelectedIndex >= 0)
             {
-                var item = requestsDataGrid.SelectedItem as Requests;
-                int id = item.idrequests;
-                NavigationService.Navigate(new PageRequest(id));
+                var item = requestsDataGrid.SelectedItem as UsersTask;
+                int id = item.id;
+                NavigationService.Navigate(new TaskUserPage(id));
             }
             else
             {
@@ -50,14 +52,14 @@ namespace RepairOfRoads.Pages
         {
             if (requestsDataGrid.SelectedIndex >= 0)
             {
-                var result = MessageBox.Show("Вы точно хотите удалить эту заявку?", "Удалить", MessageBoxButton.YesNo);
+                var result = MessageBox.Show("Вы точно хотите удалить этого пользователя?", "Удалить", MessageBoxButton.YesNo);
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    var item = requestsDataGrid.SelectedItem as Requests;
-                    int id = item.idrequests;
-                    Requests requests = db.Requests.Where(x => x.idrequests == id).FirstOrDefault();
-                    db.Requests.Remove(requests);
+                    var item = requestsDataGrid.SelectedItem as UsersTask;
+                    int id = item.id;
+                    UsersTask materials = db.UsersTask.Where(x => x.id == id).FirstOrDefault();
+                    db.UsersTask.Remove(materials);
                     db.SaveChanges();
                 }
             }

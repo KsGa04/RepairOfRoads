@@ -56,7 +56,7 @@ namespace RepairOfRoads.Pages
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Pages.MaterialPage());
+            NavigationService.Navigate(new Pages.PersonalPage());
         }
     }
 }

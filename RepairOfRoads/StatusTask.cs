@@ -14,7 +14,13 @@ namespace RepairOfRoads
     
     public partial class StatusTask
     {
+        public StatusTask()
+        {
+            this.Task = new HashSet<Task>();
+        }
         public int idstatus { get; set; }
         public string namestatus { get; set; }
+
+        public virtual ICollection<Task> Task { get; set; }
     }
 }

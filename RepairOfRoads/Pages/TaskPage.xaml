@@ -22,7 +22,7 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idTask}" Width="50"/>
-                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding problemName}" Width="400"/>
+                        <GridViewColumn Header="Нзавание" DisplayMemberBinding="{Binding problemName}" Width="450"/>
                         <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding StatusTask.namestatus}" Width="270"/>
                     </GridView>
                 </ListView.View>

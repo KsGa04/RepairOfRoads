@@ -23,6 +23,7 @@ namespace RepairOfRoads
         public Authorization()
         {
             InitializeComponent();
+            CurreintUser.id = 0;
         }
 
         private void AuthoButton_Click(object sender, RoutedEventArgs e)
@@ -30,6 +31,7 @@ namespace RepairOfRoads
             if (UsernameTextBox.Text != "" && PasswordTextBox.Password != "")
             {
                 Users users = db.Users.Where(x => x.login == UsernameTextBox.Text && x.password == PasswordTextBox.Password).FirstOrDefault();
+                CurreintUser.id = users.iduser;
                 if (users.idrole == 1)
                 {
                     MainWindowUser mainWindowUser = new MainWindowUser();

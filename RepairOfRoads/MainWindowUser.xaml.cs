@@ -22,6 +22,19 @@ namespace RepairOfRoads
         public MainWindowUser()
         {
             InitializeComponent();
+            MainFrame.Navigate(new Pages.CreateRequest());
+        }
+
+        private void Authorization_Click(object sender, RoutedEventArgs e)
+        {
+            Authorization authorization = new Authorization();
+            authorization.Show();
+            this.Hide();
+        }
+
+        private void ViewRequestsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pages.CreateRequest());
         }
     }
 }

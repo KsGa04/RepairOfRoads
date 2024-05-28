@@ -20,9 +20,6 @@
             <MenuItem Header="Поставка">
                 <MenuItem Header="Просмотр материалов" x:Name="ViewMaterialsMenuItem" Click="ViewMaterialsMenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="Календарь">
-                <MenuItem Header="Календарь работ" x:Name="WorkCalendarMenuItem" Click="WorkCalendarMenuItem_Click" />
-            </MenuItem>
             <MenuItem Header="Заявки">
                 <MenuItem Header="Просмотр заявок" x:Name="ViewRequestsMenuItem" Click="ViewRequestsMenuItem_Click" />
             </MenuItem>
