@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище RepairOfRoadsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Materials">
+          <Key>
+            <PropertyRef Name="idmaterials" />
+          </Key>
+          <Property Name="idmaterials" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameMaterials" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="countMaterials" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialsTask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTask" Type="int" />
+          <Property Name="idmaterials" Type="int" />
+        </EntityType>
+        <EntityType Name="Requests">
+          <Key>
+            <PropertyRef Name="idrequests" />
+          </Key>
+          <Property Name="idrequests" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="problemName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="idStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="idrole" />
+          </Key>
+          <Property Name="idrole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namerole" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusRequest">
+          <Key>
+            <PropertyRef Name="idstatus" />
+          </Key>
+          <Property Name="idstatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namestatus" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusTask">
+          <Key>
+            <PropertyRef Name="idstatus" />
+          </Key>
+          <Property Name="idstatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namestatus" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="idTask" />
+          </Key>
+          <Property Name="idTask" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="problemName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="dateStart" Type="date" Nullable="false" />
+          <Property Name="dateEnd" Type="date" Nullable="false" />
+          <Property Name="idStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="idrole" Type="int" />
+        </EntityType>
+        <EntityType Name="UsersTask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTask" Type="int" />
+          <Property Name="idUser" Type="int" />
+        </EntityType>
+        <Association Name="FK__Materials__idmat__33D4B598">
+          <End Role="Materials" Type="Self.Materials" Multiplicity="0..1" />
+          <End Role="MaterialsTask" Type="Self.MaterialsTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materials">
+              <PropertyRef Name="idmaterials" />
+            </Principal>
+            <Dependent Role="MaterialsTask">
+              <PropertyRef Name="idmaterials" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Materials__idTas__34C8D9D1">
+          <End Role="Task" Type="Self.Task" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MaterialsTask" Type="Self.MaterialsTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="idTask" />
+            </Principal>
+            <Dependent Role="MaterialsTask">
+              <PropertyRef Name="idTask" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__idStat__35BCFE0A">
+          <End Role="StatusRequest" Type="Self.StatusRequest" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusRequest">
+              <PropertyRef Name="idstatus" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="idStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Task__idStatus__36B12243">
+          <End Role="StatusRequest" Type="Self.StatusRequest" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusRequest">
+              <PropertyRef Name="idstatus" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="idStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__idrole__37A5467C">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="idrole" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="idrole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersTask__idTas__38996AB5">
+          <End Role="Task" Type="Self.Task" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UsersTask" Type="Self.UsersTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="idTask" />
+            </Principal>
+            <Dependent Role="UsersTask">
+              <PropertyRef Name="idTask" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersTask__idUse__398D8EEE">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UsersTask" Type="Self.UsersTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="UsersTask">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище RepairOfRoadsModelContainer">
+          <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialsTask" EntityType="Self.MaterialsTask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusRequest" EntityType="Self.StatusRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusTask" EntityType="Self.StatusTask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersTask" EntityType="Self.UsersTask" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Materials__idmat__33D4B598" Association="Self.FK__Materials__idmat__33D4B598">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="MaterialsTask" EntitySet="MaterialsTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Materials__idTas__34C8D9D1" Association="Self.FK__Materials__idTas__34C8D9D1">
+            <End Role="Task" EntitySet="Task" />
+            <End Role="MaterialsTask" EntitySet="MaterialsTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__idStat__35BCFE0A" Association="Self.FK__Requests__idStat__35BCFE0A">
+            <End Role="StatusRequest" EntitySet="StatusRequest" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Task__idStatus__36B12243" Association="Self.FK__Task__idStatus__36B12243">
+            <End Role="StatusRequest" EntitySet="StatusRequest" />
+            <End Role="Task" EntitySet="Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__idrole__37A5467C" Association="Self.FK__Users__idrole__37A5467C">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersTask__idTas__38996AB5" Association="Self.FK__UsersTask__idTas__38996AB5">
+            <End Role="Task" EntitySet="Task" />
+            <End Role="UsersTask" EntitySet="UsersTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersTask__idUse__398D8EEE" Association="Self.FK__UsersTask__idUse__398D8EEE">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersTask" EntitySet="UsersTask" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RepairOfRoadsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Materials">
+          <Key>
+            <PropertyRef Name="idmaterials" />
+          </Key>
+          <Property Name="idmaterials" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameMaterials" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="countMaterials" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MaterialsTask" Relationship="Self.FK__Materials__idmat__33D4B598" FromRole="Materials" ToRole="MaterialsTask" />
+        </EntityType>
+        <EntityType Name="MaterialsTask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTask" Type="Int32" />
+          <Property Name="idmaterials" Type="Int32" />
+          <NavigationProperty Name="Materials" Relationship="Self.FK__Materials__idmat__33D4B598" FromRole="MaterialsTask" ToRole="Materials" />
+          <NavigationProperty Name="Task" Relationship="Self.FK__Materials__idTas__34C8D9D1" FromRole="MaterialsTask" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Requests">
+          <Key>
+            <PropertyRef Name="idrequests" />
+          </Key>
+          <Property Name="idrequests" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="problemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idStatus" Type="Int32" />
+          <NavigationProperty Name="StatusRequest" Relationship="Self.FK__Requests__idStat__35BCFE0A" FromRole="Requests" ToRole="StatusRequest" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="idrole" />
+          </Key>
+          <Property Name="idrole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namerole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__idrole__37A5467C" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="StatusRequest">
+          <Key>
+            <PropertyRef Name="idstatus" />
+          </Key>
+          <Property Name="idstatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namestatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__idStat__35BCFE0A" FromRole="StatusRequest" ToRole="Requests" />
+          <NavigationProperty Name="Task" Relationship="Self.FK__Task__idStatus__36B12243" FromRole="StatusRequest" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="StatusTask">
+          <Key>
+            <PropertyRef Name="idstatus" />
+          </Key>
+          <Property Name="idstatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namestatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="idTask" />
+          </Key>
+          <Property Name="idTask" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="problemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dateStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="dateEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idStatus" Type="Int32" />
+          <NavigationProperty Name="MaterialsTask" Relationship="Self.FK__Materials__idTas__34C8D9D1" FromRole="Task" ToRole="MaterialsTask" />
+          <NavigationProperty Name="StatusRequest" Relationship="Self.FK__Task__idStatus__36B12243" FromRole="Task" ToRole="StatusRequest" />
+          <NavigationProperty Name="UsersTask" Relationship="Self.FK__UsersTask__idTas__38996AB5" FromRole="Task" ToRole="UsersTask" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idrole" Type="Int32" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Users__idrole__37A5467C" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="UsersTask" Relationship="Self.FK__UsersTask__idUse__398D8EEE" FromRole="Users" ToRole="UsersTask" />
+        </EntityType>
+        <EntityType Name="UsersTask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTask" Type="Int32" />
+          <Property Name="idUser" Type="Int32" />
+          <NavigationProperty Name="Task" Relationship="Self.FK__UsersTask__idTas__38996AB5" FromRole="UsersTask" ToRole="Task" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__UsersTask__idUse__398D8EEE" FromRole="UsersTask" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK__Materials__idmat__33D4B598">
+          <End Role="Materials" Type="Self.Materials" Multiplicity="0..1" />
+          <End Role="MaterialsTask" Type="Self.MaterialsTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materials">
+              <PropertyRef Name="idmaterials" />
+            </Principal>
+            <Dependent Role="MaterialsTask">
+              <PropertyRef Name="idmaterials" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Materials__idTas__34C8D9D1">
+          <End Role="Task" Type="Self.Task" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MaterialsTask" Type="Self.MaterialsTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="idTask" />
+            </Principal>
+            <Dependent Role="MaterialsTask">
+              <PropertyRef Name="idTask" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__idStat__35BCFE0A">
+          <End Role="StatusRequest" Type="Self.StatusRequest" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusRequest">
+              <PropertyRef Name="idstatus" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="idStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__idrole__37A5467C">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="idrole" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="idrole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Task__idStatus__36B12243">
+          <End Role="StatusRequest" Type="Self.StatusRequest" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusRequest">
+              <PropertyRef Name="idstatus" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="idStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersTask__idTas__38996AB5">
+          <End Role="Task" Type="Self.Task" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UsersTask" Type="Self.UsersTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="idTask" />
+            </Principal>
+            <Dependent Role="UsersTask">
+              <PropertyRef Name="idTask" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersTask__idUse__398D8EEE">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UsersTask" Type="Self.UsersTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="iduser" />
+            </Principal>
+            <Dependent Role="UsersTask">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RepairOfRoadsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Materials" EntityType="Self.Materials" />
+          <EntitySet Name="MaterialsTask" EntityType="Self.MaterialsTask" />
+          <EntitySet Name="Requests" EntityType="Self.Requests" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="StatusRequest" EntityType="Self.StatusRequest" />
+          <EntitySet Name="StatusTask" EntityType="Self.StatusTask" />
+          <EntitySet Name="Task" EntityType="Self.Task" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="UsersTask" EntityType="Self.UsersTask" />
+          <AssociationSet Name="FK__Materials__idmat__33D4B598" Association="Self.FK__Materials__idmat__33D4B598">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="MaterialsTask" EntitySet="MaterialsTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Materials__idTas__34C8D9D1" Association="Self.FK__Materials__idTas__34C8D9D1">
+            <End Role="Task" EntitySet="Task" />
+            <End Role="MaterialsTask" EntitySet="MaterialsTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__idStat__35BCFE0A" Association="Self.FK__Requests__idStat__35BCFE0A">
+            <End Role="StatusRequest" EntitySet="StatusRequest" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__idrole__37A5467C" Association="Self.FK__Users__idrole__37A5467C">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Task__idStatus__36B12243" Association="Self.FK__Task__idStatus__36B12243">
+            <End Role="StatusRequest" EntitySet="StatusRequest" />
+            <End Role="Task" EntitySet="Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersTask__idTas__38996AB5" Association="Self.FK__UsersTask__idTas__38996AB5">
+            <End Role="Task" EntitySet="Task" />
+            <End Role="UsersTask" EntitySet="UsersTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersTask__idUse__398D8EEE" Association="Self.FK__UsersTask__idUse__398D8EEE">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersTask" EntitySet="UsersTask" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RepairOfRoadsModelContainer" CdmEntityContainer="RepairOfRoadsEntities">
+          <EntitySetMapping Name="Materials">
+            <EntityTypeMapping TypeName="RepairOfRoadsModel.Materials">
+              <MappingFragment StoreEntitySet="Materials">
+                <ScalarProperty Name="idmaterials" ColumnName="idmaterials" />
+                <ScalarProperty Name="nameMaterials" ColumnName="nameMaterials" />
+                <ScalarProperty Name="countMaterials" ColumnName="countMaterials" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialsTask">
+            <EntityTypeMapping TypeName="RepairOfRoadsModel.MaterialsTask">
+              <MappingFragment StoreEntitySet="MaterialsTask">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idTask" ColumnName="idTask" />
+                <ScalarProperty Name="idmaterials" ColumnName="idmaterials" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="RepairOfRoadsModel.Requests">
+              <MappingFragment StoreEntitySet="Requests">
+                <ScalarProperty Name="idrequests" ColumnName="idrequests" />
+                <ScalarProperty Name="problemName" ColumnName="problemName" />
+                <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="RepairOfRoadsModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="idrole" ColumnName="idrole" />
+                <ScalarProperty Name="namerole" ColumnName="namerole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusRequest">
+            <EntityTypeMapping TypeName="RepairOfRoadsModel.StatusRequest">
+              <MappingFragment StoreEntitySet="StatusRequest">
+                <ScalarProperty Name="idstatus" ColumnName="idstatus" />
+                <ScalarProperty Name="namestatus" ColumnName="namestatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusTask">
+            <EntityTypeMapping TypeName="RepairOfRoadsModel.StatusTask">
+              <MappingFragment StoreEntitySet="StatusTask">
+                <ScalarProperty Name="idstatus" ColumnName="idstatus" />
+                <ScalarProperty Name="namestatus" ColumnName="namestatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Task">
+            <EntityTypeMapping TypeName="RepairOfRoadsModel.Task">
+              <MappingFragment StoreEntitySet="Task">
+                <ScalarProperty Name="idTask" ColumnName="idTask" />
+                <ScalarProperty Name="problemName" ColumnName="problemName" />
+                <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+                <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+                <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="RepairOfRoadsModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="idrole" ColumnName="idrole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersTask">
+            <EntityTypeMapping TypeName="RepairOfRoadsModel.UsersTask">
+              <MappingFragment StoreEntitySet="UsersTask">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idTask" ColumnName="idTask" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

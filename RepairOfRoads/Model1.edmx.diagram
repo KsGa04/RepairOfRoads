@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8fa02dc0d22b4f81831130605784f581" Name="Diagram1">
+        <EntityTypeShape EntityType="RepairOfRoadsModel.Materials" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="RepairOfRoadsModel.MaterialsTask" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RepairOfRoadsModel.Requests" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="RepairOfRoadsModel.Roles" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RepairOfRoadsModel.StatusRequest" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RepairOfRoadsModel.StatusTask" Width="1.5" PointX="7.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RepairOfRoadsModel.Task" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RepairOfRoadsModel.Users" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RepairOfRoadsModel.UsersTask" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="RepairOfRoadsModel.FK__Materials__idmat__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="RepairOfRoadsModel.FK__Materials__idTas__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="RepairOfRoadsModel.FK__Requests__idStat__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="RepairOfRoadsModel.FK__Users__idrole__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="RepairOfRoadsModel.FK__Task__idStatus__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="RepairOfRoadsModel.FK__UsersTask__idTas__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="RepairOfRoadsModel.FK__UsersTask__idUse__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
