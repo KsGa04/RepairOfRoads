@@ -26,12 +26,12 @@ namespace RepairOfRoads
 
         private void ViewRequestsMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new Pages.ApplicationsPage());
         }
 
         private void ViewTasksMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new Pages.TaskPage());
         }
 
         private void ViewPersonnelMenuItem_Click(object sender, RoutedEventArgs e)

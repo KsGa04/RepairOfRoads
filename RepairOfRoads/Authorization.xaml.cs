@@ -19,6 +19,7 @@ namespace RepairOfRoads
     /// </summary>
     public partial class Authorization : Window
     {
+        public RepairOfRoadsEntities db = new RepairOfRoadsEntities();
         public Authorization()
         {
             InitializeComponent();
@@ -26,7 +27,49 @@ namespace RepairOfRoads
 
         private void AuthoButton_Click(object sender, RoutedEventArgs e)
         {
+            if (UsernameTextBox.Text != "" && PasswordTextBox.Password != "")
+            {
+                Users users = db.Users.Where(x => x.login == UsernameTextBox.Text && x.password == PasswordTextBox.Password).FirstOrDefault();
+                if (users.idrole == 1)
+                {
+                    MainWindowUser mainWindowUser = new MainWindowUser();
+                    mainWindowUser.Show();
+                    this.Hide();
+                }
+                else if (users.idrole == 2)
+                {
+                    MainWindowEmployee mainWindowEmployee = new MainWindowEmployee();
+                    mainWindowEmployee.Show();
+                    this.Hide();
+                }
+                else if (users.idrole == 3)
+                {
+                    MainWindowDirector mainWindowDirector = new MainWindowDirector();
+                    mainWindowDirector.Show();
+                    this.Hide();
+                }
+                else if (users.idrole == 4)
+                {
+                    MainWindowManager mainWindowManager = new MainWindowManager();
+                    mainWindowManager.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Данного пользователя нет");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Некоторые поля пустые");
+            }
+        }
 
+        private void RegButton_Click(object sender, RoutedEventArgs e)
+        {
+            Registration registration = new Registration();
+            registration.Show();
+            this.Hide();
         }
     }
 }

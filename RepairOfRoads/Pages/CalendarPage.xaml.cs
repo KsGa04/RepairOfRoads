@@ -20,9 +20,11 @@ namespace RepairOfRoads.Pages
     /// </summary>
     public partial class CalendarPage : Page
     {
+        public RepairOfRoadsEntities db = new RepairOfRoadsEntities();
         public CalendarPage()
         {
             InitializeComponent();
+            workDataGrid.ItemsSource = db.Task.OrderBy(x => x.dateStart).ToList();
         }
     }
 }

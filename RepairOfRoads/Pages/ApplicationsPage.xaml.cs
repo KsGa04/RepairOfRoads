@@ -20,9 +20,26 @@ namespace RepairOfRoads.Pages
     /// </summary>
     public partial class ApplicationsPage : Page
     {
+        public RepairOfRoadsEntities db= new RepairOfRoadsEntities();
         public ApplicationsPage()
         {
             InitializeComponent();
+            requestsDataGrid.ItemsSource = db.Requests.ToList();
+        }
+
+        private void AddPersonal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditPersonal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeletePersonal_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

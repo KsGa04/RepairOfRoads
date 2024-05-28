@@ -17,11 +17,8 @@
             <MenuItem Header="Авторизация">
                 <MenuItem Header="Войти" x:Name="Authorization" Click="Authorization_Click" />
             </MenuItem>
-            <MenuItem Header="Материалы">
+            <MenuItem Header="Поставка">
                 <MenuItem Header="Просмотр материалов" x:Name="ViewMaterialsMenuItem" Click="ViewMaterialsMenuItem_Click" />
-            </MenuItem>
-            <MenuItem Header="Бригады">
-                <MenuItem Header="Просмотр бригад" x:Name="ViewTeamsMenuItem" Click="ViewTeamsMenuItem_Click" />
             </MenuItem>
             <MenuItem Header="Календарь">
                 <MenuItem Header="Календарь работ" x:Name="WorkCalendarMenuItem" Click="WorkCalendarMenuItem_Click" />

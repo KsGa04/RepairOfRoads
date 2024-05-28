@@ -8,6 +8,25 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CalendarPage">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/main_background.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid Background="#30000000">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Календарь задач" Grid.Row="0" FontSize="22" Foreground="White" Margin="0" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center"/>
+            <ListView x:Name="workDataGrid" Grid.Row="1" Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idTask}" Width="50"/>
+                        <GridViewColumn Header="Начало работы" DisplayMemberBinding="{Binding dateStart}" Width="300"/>
+                        <GridViewColumn Header="Конец работы" DisplayMemberBinding="{Binding dateEnd}" Width="300"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>

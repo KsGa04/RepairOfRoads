@@ -22,26 +22,22 @@ namespace RepairOfRoads
         public MainWindowManager()
         {
             InitializeComponent();
+            MainFrame.Navigate(new Pages.MaterialPage());
         }
 
         private void ViewMaterialsMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void ViewTeamsMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
+            MainFrame.Navigate(new Pages.MaterialPage());
         }
 
         private void WorkCalendarMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new Pages.CalendarPage());
         }
 
         private void ViewRequestsMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new Pages.ApplicationsPage());
         }
 
         private void Authorization_Click(object sender, RoutedEventArgs e)

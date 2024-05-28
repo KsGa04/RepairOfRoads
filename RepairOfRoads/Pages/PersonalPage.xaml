@@ -18,12 +18,13 @@
                 <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Просмотр персонала" Grid.Row="0" FontSize="22" Foreground="White" Margin="0" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center"/>
-            <ListView x:Name="ComputerDataGrid" Grid.Row="1" Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
+            <ListView x:Name="usersDataGrid" Grid.Row="1" Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id_computer}" Width="50"/>
-                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding name_computer}" Width="400"/>
-                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Status.name_status}" Width="270"/>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding iduser}" Width="50"/>
+                        <GridViewColumn Header="Логин" DisplayMemberBinding="{Binding login}" Width="270"/>
+                        <GridViewColumn Header="Пароль" DisplayMemberBinding="{Binding password}" Width="270"/>
+                        <GridViewColumn Header="Роль" DisplayMemberBinding="{Binding Roles.namerole}" Width="200"/>
                     </GridView>
                 </ListView.View>
             </ListView>

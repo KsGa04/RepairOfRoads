@@ -21,9 +21,9 @@
             <ListView x:Name="ComputerDataGrid" Grid.Row="1" Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id_computer}" Width="50"/>
-                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding name_computer}" Width="400"/>
-                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Status.name_status}" Width="270"/>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idmaterials}" Width="50"/>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding nameMaterials}" Width="400"/>
+                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding countMaterials}" Width="270"/>
                     </GridView>
                 </ListView.View>
             </ListView>

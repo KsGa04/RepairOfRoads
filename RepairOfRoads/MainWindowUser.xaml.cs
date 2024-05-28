@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RepairOfRoads.Pages
+namespace RepairOfRoads
 {
     /// <summary>
-    /// Логика взаимодействия для BrigadePage.xaml
+    /// Логика взаимодействия для MainWindowUser.xaml
     /// </summary>
-    public partial class BrigadePage : Page
+    public partial class MainWindowUser : Window
     {
-        public BrigadePage()
+        public MainWindowUser()
         {
             InitializeComponent();
         }
