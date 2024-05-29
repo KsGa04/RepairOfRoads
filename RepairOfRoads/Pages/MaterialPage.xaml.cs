@@ -66,6 +66,7 @@ namespace RepairOfRoads.Pages
             {
                 MessageBox.Show("Вы не выбрали ни один элемент");
             }
+            materialsDataGrid.ItemsSource = db.Materials.ToList();
         }
     }
 }
