@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [RepairOfRoads]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Database [RepairOfRoads]    Script Date: 29.05.2024 7:38:43 ******/
 CREATE DATABASE [RepairOfRoads]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -84,7 +84,7 @@ ALTER DATABASE [RepairOfRoads] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLE
 GO
 USE [RepairOfRoads]
 GO
-/****** Object:  Table [dbo].[Materials]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Table [dbo].[Materials]    Script Date: 29.05.2024 7:38:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -99,7 +99,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MaterialsTask]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Table [dbo].[MaterialsTask]    Script Date: 29.05.2024 7:38:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -114,7 +114,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Requests]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Table [dbo].[Requests]    Script Date: 29.05.2024 7:38:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -129,7 +129,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 29.05.2024 7:38:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -143,7 +143,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[StatusRequest]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Table [dbo].[StatusRequest]    Script Date: 29.05.2024 7:38:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -157,7 +157,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[StatusTask]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Table [dbo].[StatusTask]    Script Date: 29.05.2024 7:38:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -171,7 +171,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Task]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Table [dbo].[Task]    Script Date: 29.05.2024 7:38:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -188,7 +188,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 29.05.2024 7:38:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -204,7 +204,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UsersTask]    Script Date: 28.05.2024 10:23:40 ******/
+/****** Object:  Table [dbo].[UsersTask]    Script Date: 29.05.2024 7:38:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -219,6 +219,100 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+SET IDENTITY_INSERT [dbo].[Requests] ON 
+GO
+INSERT [dbo].[Requests] ([idrequests], [problemName], [idStatus]) VALUES (1, N'Участок дороги по ул. Ленина от ул. Советская до ул. Парковая находится в неудовлетворительном состоянии. На протяжении всего участка имеются множественные ямы, выбоины и трещины в асфальтовом покрытии', 1)
+GO
+INSERT [dbo].[Requests] ([idrequests], [problemName], [idStatus]) VALUES (2, N'На пересечении ул. Мира и ул. Победы образовался значительный перепад высот между асфальтовым покрытием и бордюрами, что затрудняет проезд и представляет опасность для маломобильных групп населения. ', 2)
+GO
+INSERT [dbo].[Requests] ([idrequests], [problemName], [idStatus]) VALUES (3, N'Дорожное полотно на ул. Садовой, от д.7 до д.15, сильно разрушено, имеются многочисленные трещины и выбоины. ', 2)
+GO
+INSERT [dbo].[Requests] ([idrequests], [problemName], [idStatus]) VALUES (4, N' Во время дождя на ул. Октябрьской образуются обширные участки скопления воды, что затрудняет проезд автомобилей и создает угрозу возникновения ДТП. ', 1)
+GO
+INSERT [dbo].[Requests] ([idrequests], [problemName], [idStatus]) VALUES (5, N'Многочисленные трещины и ямы на ул. Комсомольской, особенно вблизи пешеходных переходов, представляют опасность для пешеходов. ', 1)
+GO
+SET IDENTITY_INSERT [dbo].[Requests] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Roles] ON 
+GO
+INSERT [dbo].[Roles] ([idrole], [namerole]) VALUES (1, N'Пользователь')
+GO
+INSERT [dbo].[Roles] ([idrole], [namerole]) VALUES (2, N'Специалист')
+GO
+INSERT [dbo].[Roles] ([idrole], [namerole]) VALUES (3, N'Администратор')
+GO
+INSERT [dbo].[Roles] ([idrole], [namerole]) VALUES (4, N'Менеджер')
+GO
+SET IDENTITY_INSERT [dbo].[Roles] OFF
+GO
+SET IDENTITY_INSERT [dbo].[StatusRequest] ON 
+GO
+INSERT [dbo].[StatusRequest] ([idstatus], [namestatus]) VALUES (1, N'Принята')
+GO
+INSERT [dbo].[StatusRequest] ([idstatus], [namestatus]) VALUES (2, N'Отклонена')
+GO
+SET IDENTITY_INSERT [dbo].[StatusRequest] OFF
+GO
+SET IDENTITY_INSERT [dbo].[StatusTask] ON 
+GO
+INSERT [dbo].[StatusTask] ([idstatus], [namestatus]) VALUES (1, N'Новая задача')
+GO
+INSERT [dbo].[StatusTask] ([idstatus], [namestatus]) VALUES (2, N'В процессе ремонта')
+GO
+INSERT [dbo].[StatusTask] ([idstatus], [namestatus]) VALUES (3, N'Готова к эксплуатации')
+GO
+SET IDENTITY_INSERT [dbo].[StatusTask] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Task] ON 
+GO
+INSERT [dbo].[Task] ([idTask], [problemName], [dateStart], [dateEnd], [idStatus]) VALUES (1, N'Участок дороги по ул. Ленина от ул. Советская до ул. Парковая находится в неудовлетворительном состоянии. На протяжении всего участка имеются множественные ямы, выбоины и трещины в асфальтовом покрытии', CAST(N'2024-05-31' AS Date), CAST(N'2024-06-21' AS Date), 1)
+GO
+INSERT [dbo].[Task] ([idTask], [problemName], [dateStart], [dateEnd], [idStatus]) VALUES (2, N' Во время дождя на ул. Октябрьской образуются обширные участки скопления воды, что затрудняет проезд автомобилей и создает угрозу возникновения ДТП. ', CAST(N'2024-07-05' AS Date), CAST(N'2024-08-10' AS Date), 1)
+GO
+INSERT [dbo].[Task] ([idTask], [problemName], [dateStart], [dateEnd], [idStatus]) VALUES (3, N'Многочисленные трещины и ямы на ул. Комсомольской, особенно вблизи пешеходных переходов, представляют опасность для пешеходов. ', CAST(N'2024-04-20' AS Date), CAST(N'2024-05-31' AS Date), 1)
+GO
+SET IDENTITY_INSERT [dbo].[Task] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Users] ON 
+GO
+INSERT [dbo].[Users] ([iduser], [login], [password], [idrole]) VALUES (1, N'login1', N'pass1', 1)
+GO
+INSERT [dbo].[Users] ([iduser], [login], [password], [idrole]) VALUES (2, N'login2', N'pass2', 2)
+GO
+INSERT [dbo].[Users] ([iduser], [login], [password], [idrole]) VALUES (3, N'login3', N'pass3', 3)
+GO
+INSERT [dbo].[Users] ([iduser], [login], [password], [idrole]) VALUES (4, N'login4', N'pass4', 4)
+GO
+INSERT [dbo].[Users] ([iduser], [login], [password], [idrole]) VALUES (5, N'login6', N'pass6', 2)
+GO
+INSERT [dbo].[Users] ([iduser], [login], [password], [idrole]) VALUES (6, N'login7', N'pass7', 2)
+GO
+INSERT [dbo].[Users] ([iduser], [login], [password], [idrole]) VALUES (7, N'login8', N'pass8', 2)
+GO
+INSERT [dbo].[Users] ([iduser], [login], [password], [idrole]) VALUES (8, N'login5', N'pass5', 2)
+GO
+SET IDENTITY_INSERT [dbo].[Users] OFF
+GO
+SET IDENTITY_INSERT [dbo].[UsersTask] ON 
+GO
+INSERT [dbo].[UsersTask] ([id], [idTask], [idUser]) VALUES (1, 1, 2)
+GO
+INSERT [dbo].[UsersTask] ([id], [idTask], [idUser]) VALUES (2, 1, 5)
+GO
+INSERT [dbo].[UsersTask] ([id], [idTask], [idUser]) VALUES (3, 1, 7)
+GO
+INSERT [dbo].[UsersTask] ([id], [idTask], [idUser]) VALUES (4, 2, 6)
+GO
+INSERT [dbo].[UsersTask] ([id], [idTask], [idUser]) VALUES (5, 2, 8)
+GO
+INSERT [dbo].[UsersTask] ([id], [idTask], [idUser]) VALUES (6, 2, 2)
+GO
+INSERT [dbo].[UsersTask] ([id], [idTask], [idUser]) VALUES (7, 3, 5)
+GO
+INSERT [dbo].[UsersTask] ([id], [idTask], [idUser]) VALUES (8, 3, 8)
+GO
+SET IDENTITY_INSERT [dbo].[UsersTask] OFF
+GO
 ALTER TABLE [dbo].[MaterialsTask]  WITH CHECK ADD FOREIGN KEY([idmaterials])
 REFERENCES [dbo].[Materials] ([idmaterials])
 ON UPDATE CASCADE
@@ -231,9 +325,11 @@ ALTER TABLE [dbo].[Requests]  WITH CHECK ADD FOREIGN KEY([idStatus])
 REFERENCES [dbo].[StatusRequest] ([idstatus])
 ON UPDATE CASCADE
 GO
-ALTER TABLE [dbo].[Task]  WITH CHECK ADD FOREIGN KEY([idStatus])
-REFERENCES [dbo].[StatusRequest] ([idstatus])
+ALTER TABLE [dbo].[Task]  WITH CHECK ADD  CONSTRAINT [FK__Task__idStatus__4316F928] FOREIGN KEY([idStatus])
+REFERENCES [dbo].[StatusTask] ([idstatus])
 ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Task] CHECK CONSTRAINT [FK__Task__idStatus__4316F928]
 GO
 ALTER TABLE [dbo].[Users]  WITH CHECK ADD FOREIGN KEY([idrole])
 REFERENCES [dbo].[Roles] ([idrole])
