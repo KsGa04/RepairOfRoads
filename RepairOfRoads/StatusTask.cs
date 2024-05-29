@@ -14,13 +14,16 @@ namespace RepairOfRoads
     
     public partial class StatusTask
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public StatusTask()
         {
             this.Task = new HashSet<Task>();
         }
+    
         public int idstatus { get; set; }
         public string namestatus { get; set; }
-
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Task> Task { get; set; }
     }
 }

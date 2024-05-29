@@ -22,7 +22,7 @@ namespace RepairOfRoads
     
         public int idmaterials { get; set; }
         public string nameMaterials { get; set; }
-        public int countMaterials { get; set; }
+        public string countMaterials { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MaterialsTask> MaterialsTask { get; set; }

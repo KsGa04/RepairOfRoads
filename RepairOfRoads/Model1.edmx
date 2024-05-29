@@ -11,7 +11,7 @@
           </Key>
           <Property Name="idmaterials" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nameMaterials" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="countMaterials" Type="int" Nullable="false" />
+          <Property Name="countMaterials" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="MaterialsTask">
           <Key>
@@ -77,7 +77,7 @@
           <Property Name="idTask" Type="int" />
           <Property Name="idUser" Type="int" />
         </EntityType>
-        <Association Name="FK__Materials__idmat__33D4B598">
+        <Association Name="FK__Materials__idmat__46E78A0C">
           <End Role="Materials" Type="Self.Materials" Multiplicity="0..1" />
           <End Role="MaterialsTask" Type="Self.MaterialsTask" Multiplicity="*" />
           <ReferentialConstraint>
@@ -89,7 +89,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Materials__idTas__34C8D9D1">
+        <Association Name="FK__Materials__idTas__47DBAE45">
           <End Role="Task" Type="Self.Task" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -103,7 +103,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__idStat__35BCFE0A">
+        <Association Name="FK__Requests__idStat__48CFD27E">
           <End Role="StatusRequest" Type="Self.StatusRequest" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -115,13 +115,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Task__idStatus__36B12243">
-          <End Role="StatusRequest" Type="Self.StatusRequest" Multiplicity="0..1">
+        <Association Name="FK__Task__idStatus__4316F928">
+          <End Role="StatusTask" Type="Self.StatusTask" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Task" Type="Self.Task" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="StatusRequest">
+            <Principal Role="StatusTask">
               <PropertyRef Name="idstatus" />
             </Principal>
             <Dependent Role="Task">
@@ -129,7 +129,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__idrole__37A5467C">
+        <Association Name="FK__Users__idrole__4AB81AF0">
           <End Role="Roles" Type="Self.Roles" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -143,7 +143,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UsersTask__idTas__38996AB5">
+        <Association Name="FK__UsersTask__idTas__4BAC3F29">
           <End Role="Task" Type="Self.Task" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -157,7 +157,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UsersTask__idUse__398D8EEE">
+        <Association Name="FK__UsersTask__idUse__4CA06362">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="UsersTask" Type="Self.UsersTask" Multiplicity="*" />
           <ReferentialConstraint>
@@ -179,31 +179,31 @@
           <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsersTask" EntityType="Self.UsersTask" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Materials__idmat__33D4B598" Association="Self.FK__Materials__idmat__33D4B598">
+          <AssociationSet Name="FK__Materials__idmat__46E78A0C" Association="Self.FK__Materials__idmat__46E78A0C">
             <End Role="Materials" EntitySet="Materials" />
             <End Role="MaterialsTask" EntitySet="MaterialsTask" />
           </AssociationSet>
-          <AssociationSet Name="FK__Materials__idTas__34C8D9D1" Association="Self.FK__Materials__idTas__34C8D9D1">
+          <AssociationSet Name="FK__Materials__idTas__47DBAE45" Association="Self.FK__Materials__idTas__47DBAE45">
             <End Role="Task" EntitySet="Task" />
             <End Role="MaterialsTask" EntitySet="MaterialsTask" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__idStat__35BCFE0A" Association="Self.FK__Requests__idStat__35BCFE0A">
+          <AssociationSet Name="FK__Requests__idStat__48CFD27E" Association="Self.FK__Requests__idStat__48CFD27E">
             <End Role="StatusRequest" EntitySet="StatusRequest" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Task__idStatus__36B12243" Association="Self.FK__Task__idStatus__36B12243">
-            <End Role="StatusRequest" EntitySet="StatusRequest" />
+          <AssociationSet Name="FK__Task__idStatus__4316F928" Association="Self.FK__Task__idStatus__4316F928">
+            <End Role="StatusTask" EntitySet="StatusTask" />
             <End Role="Task" EntitySet="Task" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__idrole__37A5467C" Association="Self.FK__Users__idrole__37A5467C">
+          <AssociationSet Name="FK__Users__idrole__4AB81AF0" Association="Self.FK__Users__idrole__4AB81AF0">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__UsersTask__idTas__38996AB5" Association="Self.FK__UsersTask__idTas__38996AB5">
+          <AssociationSet Name="FK__UsersTask__idTas__4BAC3F29" Association="Self.FK__UsersTask__idTas__4BAC3F29">
             <End Role="Task" EntitySet="Task" />
             <End Role="UsersTask" EntitySet="UsersTask" />
           </AssociationSet>
-          <AssociationSet Name="FK__UsersTask__idUse__398D8EEE" Association="Self.FK__UsersTask__idUse__398D8EEE">
+          <AssociationSet Name="FK__UsersTask__idUse__4CA06362" Association="Self.FK__UsersTask__idUse__4CA06362">
             <End Role="Users" EntitySet="Users" />
             <End Role="UsersTask" EntitySet="UsersTask" />
           </AssociationSet>
@@ -219,8 +219,8 @@
           </Key>
           <Property Name="idmaterials" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nameMaterials" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="countMaterials" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="MaterialsTask" Relationship="Self.FK__Materials__idmat__33D4B598" FromRole="Materials" ToRole="MaterialsTask" />
+          <Property Name="countMaterials" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MaterialsTask" Relationship="Self.FK__Materials__idmat__46E78A0C" FromRole="Materials" ToRole="MaterialsTask" />
         </EntityType>
         <EntityType Name="MaterialsTask">
           <Key>
@@ -229,8 +229,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idTask" Type="Int32" />
           <Property Name="idmaterials" Type="Int32" />
-          <NavigationProperty Name="Materials" Relationship="Self.FK__Materials__idmat__33D4B598" FromRole="MaterialsTask" ToRole="Materials" />
-          <NavigationProperty Name="Task" Relationship="Self.FK__Materials__idTas__34C8D9D1" FromRole="MaterialsTask" ToRole="Task" />
+          <NavigationProperty Name="Materials" Relationship="Self.FK__Materials__idmat__46E78A0C" FromRole="MaterialsTask" ToRole="Materials" />
+          <NavigationProperty Name="Task" Relationship="Self.FK__Materials__idTas__47DBAE45" FromRole="MaterialsTask" ToRole="Task" />
         </EntityType>
         <EntityType Name="Requests">
           <Key>
@@ -239,7 +239,7 @@
           <Property Name="idrequests" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="problemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idStatus" Type="Int32" />
-          <NavigationProperty Name="StatusRequest" Relationship="Self.FK__Requests__idStat__35BCFE0A" FromRole="Requests" ToRole="StatusRequest" />
+          <NavigationProperty Name="StatusRequest" Relationship="Self.FK__Requests__idStat__48CFD27E" FromRole="Requests" ToRole="StatusRequest" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -247,7 +247,7 @@
           </Key>
           <Property Name="idrole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="namerole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__Users__idrole__37A5467C" FromRole="Roles" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__idrole__4AB81AF0" FromRole="Roles" ToRole="Users" />
         </EntityType>
         <EntityType Name="StatusRequest">
           <Key>
@@ -255,8 +255,7 @@
           </Key>
           <Property Name="idstatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="namestatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__idStat__35BCFE0A" FromRole="StatusRequest" ToRole="Requests" />
-          <NavigationProperty Name="Task" Relationship="Self.FK__Task__idStatus__36B12243" FromRole="StatusRequest" ToRole="Task" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__idStat__48CFD27E" FromRole="StatusRequest" ToRole="Requests" />
         </EntityType>
         <EntityType Name="StatusTask">
           <Key>
@@ -264,6 +263,7 @@
           </Key>
           <Property Name="idstatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="namestatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Task" Relationship="Self.FK__Task__idStatus__4316F928" FromRole="StatusTask" ToRole="Task" />
         </EntityType>
         <EntityType Name="Task">
           <Key>
@@ -274,9 +274,9 @@
           <Property Name="dateStart" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="dateEnd" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="idStatus" Type="Int32" />
-          <NavigationProperty Name="MaterialsTask" Relationship="Self.FK__Materials__idTas__34C8D9D1" FromRole="Task" ToRole="MaterialsTask" />
-          <NavigationProperty Name="StatusRequest" Relationship="Self.FK__Task__idStatus__36B12243" FromRole="Task" ToRole="StatusRequest" />
-          <NavigationProperty Name="UsersTask" Relationship="Self.FK__UsersTask__idTas__38996AB5" FromRole="Task" ToRole="UsersTask" />
+          <NavigationProperty Name="MaterialsTask" Relationship="Self.FK__Materials__idTas__47DBAE45" FromRole="Task" ToRole="MaterialsTask" />
+          <NavigationProperty Name="StatusTask" Relationship="Self.FK__Task__idStatus__4316F928" FromRole="Task" ToRole="StatusTask" />
+          <NavigationProperty Name="UsersTask" Relationship="Self.FK__UsersTask__idTas__4BAC3F29" FromRole="Task" ToRole="UsersTask" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -286,8 +286,8 @@
           <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idrole" Type="Int32" />
-          <NavigationProperty Name="Roles" Relationship="Self.FK__Users__idrole__37A5467C" FromRole="Users" ToRole="Roles" />
-          <NavigationProperty Name="UsersTask" Relationship="Self.FK__UsersTask__idUse__398D8EEE" FromRole="Users" ToRole="UsersTask" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Users__idrole__4AB81AF0" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="UsersTask" Relationship="Self.FK__UsersTask__idUse__4CA06362" FromRole="Users" ToRole="UsersTask" />
         </EntityType>
         <EntityType Name="UsersTask">
           <Key>
@@ -296,10 +296,10 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idTask" Type="Int32" />
           <Property Name="idUser" Type="Int32" />
-          <NavigationProperty Name="Task" Relationship="Self.FK__UsersTask__idTas__38996AB5" FromRole="UsersTask" ToRole="Task" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__UsersTask__idUse__398D8EEE" FromRole="UsersTask" ToRole="Users" />
+          <NavigationProperty Name="Task" Relationship="Self.FK__UsersTask__idTas__4BAC3F29" FromRole="UsersTask" ToRole="Task" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__UsersTask__idUse__4CA06362" FromRole="UsersTask" ToRole="Users" />
         </EntityType>
-        <Association Name="FK__Materials__idmat__33D4B598">
+        <Association Name="FK__Materials__idmat__46E78A0C">
           <End Role="Materials" Type="Self.Materials" Multiplicity="0..1" />
           <End Role="MaterialsTask" Type="Self.MaterialsTask" Multiplicity="*" />
           <ReferentialConstraint>
@@ -311,7 +311,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Materials__idTas__34C8D9D1">
+        <Association Name="FK__Materials__idTas__47DBAE45">
           <End Role="Task" Type="Self.Task" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -325,7 +325,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__idStat__35BCFE0A">
+        <Association Name="FK__Requests__idStat__48CFD27E">
           <End Role="StatusRequest" Type="Self.StatusRequest" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -337,7 +337,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__idrole__37A5467C">
+        <Association Name="FK__Users__idrole__4AB81AF0">
           <End Role="Roles" Type="Self.Roles" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -351,13 +351,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Task__idStatus__36B12243">
-          <End Role="StatusRequest" Type="Self.StatusRequest" Multiplicity="0..1">
+        <Association Name="FK__Task__idStatus__4316F928">
+          <End Role="StatusTask" Type="Self.StatusTask" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Task" Type="Self.Task" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="StatusRequest">
+            <Principal Role="StatusTask">
               <PropertyRef Name="idstatus" />
             </Principal>
             <Dependent Role="Task">
@@ -365,7 +365,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UsersTask__idTas__38996AB5">
+        <Association Name="FK__UsersTask__idTas__4BAC3F29">
           <End Role="Task" Type="Self.Task" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -379,7 +379,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UsersTask__idUse__398D8EEE">
+        <Association Name="FK__UsersTask__idUse__4CA06362">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="UsersTask" Type="Self.UsersTask" Multiplicity="*" />
           <ReferentialConstraint>
@@ -401,31 +401,31 @@
           <EntitySet Name="Task" EntityType="Self.Task" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="UsersTask" EntityType="Self.UsersTask" />
-          <AssociationSet Name="FK__Materials__idmat__33D4B598" Association="Self.FK__Materials__idmat__33D4B598">
+          <AssociationSet Name="FK__Materials__idmat__46E78A0C" Association="Self.FK__Materials__idmat__46E78A0C">
             <End Role="Materials" EntitySet="Materials" />
             <End Role="MaterialsTask" EntitySet="MaterialsTask" />
           </AssociationSet>
-          <AssociationSet Name="FK__Materials__idTas__34C8D9D1" Association="Self.FK__Materials__idTas__34C8D9D1">
+          <AssociationSet Name="FK__Materials__idTas__47DBAE45" Association="Self.FK__Materials__idTas__47DBAE45">
             <End Role="Task" EntitySet="Task" />
             <End Role="MaterialsTask" EntitySet="MaterialsTask" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__idStat__35BCFE0A" Association="Self.FK__Requests__idStat__35BCFE0A">
+          <AssociationSet Name="FK__Requests__idStat__48CFD27E" Association="Self.FK__Requests__idStat__48CFD27E">
             <End Role="StatusRequest" EntitySet="StatusRequest" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__idrole__37A5467C" Association="Self.FK__Users__idrole__37A5467C">
+          <AssociationSet Name="FK__Users__idrole__4AB81AF0" Association="Self.FK__Users__idrole__4AB81AF0">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__Task__idStatus__36B12243" Association="Self.FK__Task__idStatus__36B12243">
-            <End Role="StatusRequest" EntitySet="StatusRequest" />
+          <AssociationSet Name="FK__Task__idStatus__4316F928" Association="Self.FK__Task__idStatus__4316F928">
+            <End Role="StatusTask" EntitySet="StatusTask" />
             <End Role="Task" EntitySet="Task" />
           </AssociationSet>
-          <AssociationSet Name="FK__UsersTask__idTas__38996AB5" Association="Self.FK__UsersTask__idTas__38996AB5">
+          <AssociationSet Name="FK__UsersTask__idTas__4BAC3F29" Association="Self.FK__UsersTask__idTas__4BAC3F29">
             <End Role="Task" EntitySet="Task" />
             <End Role="UsersTask" EntitySet="UsersTask" />
           </AssociationSet>
-          <AssociationSet Name="FK__UsersTask__idUse__398D8EEE" Association="Self.FK__UsersTask__idUse__398D8EEE">
+          <AssociationSet Name="FK__UsersTask__idUse__4CA06362" Association="Self.FK__UsersTask__idUse__4CA06362">
             <End Role="Users" EntitySet="Users" />
             <End Role="UsersTask" EntitySet="UsersTask" />
           </AssociationSet>
