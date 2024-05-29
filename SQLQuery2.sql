@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [RepairOfRoads]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Database [RepairOfRoads]    Script Date: 29.05.2024 8:27:41 ******/
 CREATE DATABASE [RepairOfRoads]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -84,7 +84,7 @@ ALTER DATABASE [RepairOfRoads] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLE
 GO
 USE [RepairOfRoads]
 GO
-/****** Object:  Table [dbo].[Materials]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Table [dbo].[Materials]    Script Date: 29.05.2024 8:27:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -92,14 +92,14 @@ GO
 CREATE TABLE [dbo].[Materials](
 	[idmaterials] [int] IDENTITY(1,1) NOT NULL,
 	[nameMaterials] [nvarchar](max) NOT NULL,
-	[countMaterials] [int] NOT NULL,
+	[countMaterials] [nvarchar](max) NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[idmaterials] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MaterialsTask]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Table [dbo].[MaterialsTask]    Script Date: 29.05.2024 8:27:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -114,7 +114,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Requests]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Table [dbo].[Requests]    Script Date: 29.05.2024 8:27:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -129,7 +129,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 29.05.2024 8:27:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -143,7 +143,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[StatusRequest]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Table [dbo].[StatusRequest]    Script Date: 29.05.2024 8:27:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -157,7 +157,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[StatusTask]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Table [dbo].[StatusTask]    Script Date: 29.05.2024 8:27:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -171,7 +171,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Task]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Table [dbo].[Task]    Script Date: 29.05.2024 8:27:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -188,7 +188,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 29.05.2024 8:27:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -204,7 +204,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UsersTask]    Script Date: 29.05.2024 7:38:43 ******/
+/****** Object:  Table [dbo].[UsersTask]    Script Date: 29.05.2024 8:27:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -218,6 +218,54 @@ PRIMARY KEY CLUSTERED
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Materials] ON 
+GO
+INSERT [dbo].[Materials] ([idmaterials], [nameMaterials], [countMaterials]) VALUES (1, N'Асфальт', N'от 50 до 100 тонн на 1 км')
+GO
+INSERT [dbo].[Materials] ([idmaterials], [nameMaterials], [countMaterials]) VALUES (2, N'Битум', N'5-10 тонн на 1 км дороги')
+GO
+INSERT [dbo].[Materials] ([idmaterials], [nameMaterials], [countMaterials]) VALUES (3, N'Щебень', N'200-300 тонн на 1 км дороги')
+GO
+INSERT [dbo].[Materials] ([idmaterials], [nameMaterials], [countMaterials]) VALUES (4, N'Песок', N'50-100 тонн на 1 км дороги')
+GO
+INSERT [dbo].[Materials] ([idmaterials], [nameMaterials], [countMaterials]) VALUES (5, N'Краска для разметки', N'100-200 литров на 1 км дороги')
+GO
+SET IDENTITY_INSERT [dbo].[Materials] OFF
+GO
+SET IDENTITY_INSERT [dbo].[MaterialsTask] ON 
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (1, 1, 1)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (2, 1, 2)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (3, 1, 3)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (4, 1, 4)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (5, 1, 5)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (6, 2, 1)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (7, 2, 2)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (8, 2, 3)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (9, 2, 4)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (10, 2, 5)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (11, 3, 1)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (12, 3, 2)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (13, 3, 3)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (14, 3, 4)
+GO
+INSERT [dbo].[MaterialsTask] ([id], [idTask], [idmaterials]) VALUES (15, 3, 5)
+GO
+SET IDENTITY_INSERT [dbo].[MaterialsTask] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Requests] ON 
 GO

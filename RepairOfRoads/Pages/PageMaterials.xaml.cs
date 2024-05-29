@@ -40,13 +40,13 @@ namespace RepairOfRoads.Pages
             if (Id != 0)
             {
                 Materials.nameMaterials = name.Text;
-                Materials.countMaterials = Convert.ToInt32(count.Text);
+                Materials.countMaterials = count.Text;
             }
             else
             {
                 Materials Materials = new Materials();
                 Materials.nameMaterials = name.Text;
-                Materials.countMaterials = Convert.ToInt32(count.Text);
+                Materials.countMaterials = count.Text;
                 db.Materials.Add(Materials);
             }
             db.SaveChanges();

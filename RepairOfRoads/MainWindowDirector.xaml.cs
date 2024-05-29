@@ -22,12 +22,7 @@ namespace RepairOfRoads
         public MainWindowDirector()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Pages.ApplicationsPage());
-        }
-
-        private void ViewRequestsMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Pages.ApplicationsPage());
+            MainFrame.Navigate(new Pages.TaskPage());
         }
 
         private void ViewTasksMenuItem_Click(object sender, RoutedEventArgs e)

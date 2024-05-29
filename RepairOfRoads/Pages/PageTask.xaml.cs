@@ -54,6 +54,30 @@ namespace RepairOfRoads.Pages
                 Task.dateStart = (DateTime)dateStart.SelectedDate;
                 Task.dateEnd = (DateTime)dateEnd.SelectedDate;
                 db.Task.Add(Task);
+                MaterialsTask materialsTask1 = new MaterialsTask();
+                materialsTask1.idTask = Task.idTask;
+                materialsTask1.idmaterials = 1;
+                db.MaterialsTask.Add(materialsTask1);
+
+                MaterialsTask materialsTask2 = new MaterialsTask();
+                materialsTask2.idTask = Task.idTask;
+                materialsTask2.idmaterials = 2;
+                db.MaterialsTask.Add(materialsTask2);
+
+                MaterialsTask materialsTask3 = new MaterialsTask();
+                materialsTask3.idTask = Task.idTask;
+                materialsTask3.idmaterials = 3;
+                db.MaterialsTask.Add(materialsTask3);
+
+                MaterialsTask materialsTask4 = new MaterialsTask();
+                materialsTask4.idTask = Task.idTask;
+                materialsTask4.idmaterials = 4;
+                db.MaterialsTask.Add(materialsTask4);
+
+                MaterialsTask materialsTask5 = new MaterialsTask();
+                materialsTask5.idTask = Task.idTask;
+                materialsTask5.idmaterials = 5;
+                db.MaterialsTask.Add(materialsTask5);
             }
             db.SaveChanges();
         }

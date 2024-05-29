@@ -22,8 +22,8 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idTask}" Width="50"/>
-                        <GridViewColumn Header="Начало работы" DisplayMemberBinding="{Binding dateStart}" Width="300"/>
-                        <GridViewColumn Header="Конец работы" DisplayMemberBinding="{Binding dateEnd}" Width="300"/>
+                        <GridViewColumn Header="Начало работы" DisplayMemberBinding="{Binding dateStart, StringFormat={}{0:yyyy-MM-dd}}" Width="350"/>
+                        <GridViewColumn Header="Конец работы" DisplayMemberBinding="{Binding dateEnd, StringFormat={}{0:yyyy-MM-dd}}" Width="350"/>
                     </GridView>
                 </ListView.View>
             </ListView>
